@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viewer</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div id="viewer-container"></div>
+
+<script>
+$(document).ready(function(){
+    $.ajax({
+        url: 'proxy.php',
+        type: 'GET',
+        success: function(response) {
+            $('#viewer-container').html(response);
+        },
+        error: function(xhr) {
+            console.log('Error:', xhr);
+        }
+    });
+});
+</script>
+
+</body>
+</html>
